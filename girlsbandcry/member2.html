@@ -1,0 +1,377 @@
+<!-- member2.html 成员渚页面 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>河原木桃香 - Girls Band Cry 成员介绍</title>
+  <!-- 引入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 配置 Tailwind 自定义主题 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#64B5F6',
+            secondary: '#7928CA',
+            accent: '#FFC107',
+            dark: '#121212',
+            light: '#F8F9FA'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Poppins', 'sans-serif']
+          },
+        },
+      }
+    }
+  </script>
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+      .bg-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+  </style>
+  <style>
+    /* 全局样式 */
+    body {
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+    }
+    /* 平滑滚动 */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* 音乐按钮动画 */
+    .music-btn.active {
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-light font-sans text-dark antialiased" style="background-image: url('https://picsum.photos/id/1011/1920/1080'); background-blend-mode: overlay; background-color: rgba(255,255,255,0.8);">
+  <!-- 导航栏 -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/80 bg-blur">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="text-primary text-2xl font-display font-bold">Girls Band Cry</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="index.html#about" class="hidden md:inline text-dark/80 hover:text-primary transition-colors">关于乐队</a>
+        <a href="index.html#members" class="hidden md:inline text-dark/80 hover:text-primary transition-colors">成员介绍</a>
+        <button id="musicBtn" class="music-btn p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+          <i class="fa fa-music text-xl"></i>
+        </button>
+      </div>
+      <!-- 移动端菜单按钮 -->
+      <button id="menuBtn" class="md:hidden p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+        <i class="fa fa-bars text-xl"></i>
+      </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white/95 bg-blur w-full absolute top-full left-0 shadow-lg">
+      <div class="container mx-auto px-4 py-3 flex flex-col gap-4">
+        <a href="index.html#about" class="text-dark/80 hover:text-primary py-2 transition-colors">关于乐队</a>
+        <a href="index.html#members" class="text-dark/80 hover:text-primary py-2 transition-colors">成员介绍</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 背景音乐元素 -->
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="https://example.com/girlsbandcry-theme.mp3" type="audio/mpeg">
+    您的浏览器不支持音频播放
+    <!-- 注意：实际使用时请替换为真实的Girls Band Cry音乐文件URL -->
+  </audio>
+
+  <!-- 成员详情区域 -->
+  <header class="pt-32 pb-16 px-4">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row gap-8 items-center">
+        <div class="w-full md:w-1/3 rounded-2xl overflow-hidden shadow-2xl">
+          <img src="吉他手.jpg" alt="成员 河原木桃香" class="w-full h-auto object-cover">
+        </div>
+        <div class="w-full md:w-2/3 text-center md:text-left">
+          <h1 class="text-[clamp(2rem,5vw,3rem)] font-display font-bold text-dark mb-2">河原木桃香</h1>
+          <p class="text-primary text-xl font-semibold mb-6">主吉他手</p>
+          <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+            <span class="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm">主吉他</span>
+            <span class="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm">独奏</span>
+            <span class="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm">编曲</span>
+            <span class="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm">和声</span>
+          </div>
+          <div class="flex justify-center md:justify-start gap-4 mb-8">
+            <a href="https://www.bilibili.com/" target="_blank" class="px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/30 flex items-center gap-2">
+              <i class="fa fa-bilibili"></i> B站观看
+            </a>
+            <a href="index.html#members" class="px-6 py-3 bg-white text-primary border border-primary rounded-full font-medium hover:bg-primary/5 transition-all shadow-md hover:shadow-primary/20 flex items-center gap-2">
+              <i class="fa fa-arrow-left"></i> 返回成员列表
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="py-16 px-4 bg-white/70 bg-blur rounded-3xl mx-4 md:mx-8 lg:mx-16 mb-20">
+    <div class="container mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-dark mb-6 flex items-center gap-2">
+            <i class="fa fa-user-circle text-primary"></i> 个人简介
+          </h2>
+          <p class="text-dark/80 mb-6 leading-relaxed">
+            河原木桃香，有一头白金色半长发，发根粉棕，银色眼睛，常穿中性服装，低调随性。她性格直爽，
+            酷而帅气，热心照顾他人，生活上稍显马虎，喜欢喝酒，但酒量差。桃香曾是“钻石尘”女子乐队主唱兼吉他手及队长，
+            因不满公司转型偶像路线而离开。之后成为街头艺人，与朋友华男合租，一边打工一边唱歌。桃香的乐器是吉他，
+            同时还擅长写词、作曲，有领导力，认真要求自己和队友，生活能力强，喜欢读书和看体育比赛。她与前乐队成员感情深，
+            后与井芹仁菜、安和昴组成三人乐队，担任“姊妹担当”，被队友称为“桃姐”或“桃酱”。她常因懒惰被吐槽，
+            还偷吃冰箱食物，开车风格冲，小时候怕蛇。
+          </p>
+          <p class="text-dark/80 mb-6 leading-relaxed">
+            河原木桃香的吉他演奏融合了摇滚、爵士、流行等多种风格，她擅长各种复杂的吉他技巧，尤其是在独奏部分，
+            总能给听众带来惊喜。她的编曲能力也非常出色，为乐队的多首歌曲贡献了精彩的吉他编配。
+          </p>
+          <p class="text-dark/80 leading-relaxed">
+            2020年前后（高中时期），桃香开始作曲了，她开始用耳朵去区分“要听的歌曲”和“应该参考的歌曲”
+            就这样，她的作曲貌似是想超越历史，写出最快的BPM。一边想让听者沉浸在如VOCALOID曲的高速感中，
+            一边又要反复转调出那种可以让人眼花缭乱的高播放导向音声。这种想将过去摇滚、爵士乐、R&B、EDM的历史，
+            用自己的音符起描绘出来的想法，就是那位充满才能的女吉他手想要表现的声音，
+            也是“TOGENASHI TOGEARI”乐曲的基本概念。于是，在更新飞快的短视频的影响下，桃香充分发挥互联网搜索功能，
+            挖掘残存于耳畔触感去创造文学风的歌词，同时里面也包含了桃香从自己青春期开始积极地钻研音乐至今的热情。
+            这种既不是重金属、也不是下北系的新型女子乐队就此诞生了。 
+          </p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-dark mb-6 flex items-center gap-2">
+            <i class="fa fa-music text-primary"></i> 音乐经历
+          </h2>
+          <ul class="space-y-4 text-dark/80">
+            <li class="flex gap-3">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              <div>
+                <span class="font-bold text-dark">2018年</span> - 开始学习古典吉他，展现出过人的音乐天赋
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              <div>
+                <span class="font-bold text-dark">2020年</span> - 转型学习电吉他，加入校园乐队担任吉他手
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              
+            </li>
+            <li class="flex gap-3">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              <div>
+                <span class="font-bold text-dark">2023年</span> - 加入 Girls Band Cry，担任主吉他手
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              <div>
+                <span class="font-bold text-dark">2024年</span> - 为乐队多首热门歌曲创作吉他独奏段落，广受好评
+              </div>
+            </li>
+          </ul>
+          
+          <h2 class="text-2xl font-bold text-dark mt-10 mb-6 flex items-center gap-2">
+            <i class="fa fa-heart text-primary"></i> 个人爱好
+          </h2>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">吉他收藏</span>
+            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">音乐制作</span>
+            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">动漫</span>
+            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">游戏</span>
+            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">滑板</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-16">
+        <h2 class="text-2xl font-bold text-dark mb-8 text-center">代表作品</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 作品1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <div class="relative h-48">
+              <img src="GBC_togetoge.webp" alt="歌曲雑踏、僕らの街（熙熙攘攘、我们的城市）" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white font-bold p-4 text-shadow">歌曲雑踏、僕らの街</h3>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-dark/70 text-sm mb-3">乐队首张EP主打歌，被称为'冰'的歌曲</p>
+              <a href="https://www.bilibili.com/video/BV1ZLrhYtE69/?spm_id_from=333.337.search-card.all.click&vd_source=461658180896cacfa7f5a22409e1cbf8" target="_blank" class="text-primary hover:text-primary/80 transition-colors text-sm font-medium">
+                观看MV <i class="fa fa-external-link ml-1"></i>
+              </a>
+            </div>
+          </div>
+          
+          
+          
+          
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-12 px-4">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-display font-bold text-primary mb-4">Girls Band Cry</h3>
+          <p class="text-white/70 mb-6">
+            用音乐传递真实情感，用旋律治愈心灵
+          </p>
+          <div class="flex gap-4">
+            <a href="https://www.bilibili.com/" target="_blank" class="p-2 rounded-full bg-white/10 hover:bg-primary/80 transition-colors">
+              <i class="fa fa-bilibili"></i>
+            </a>
+            <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-primary/80 transition-colors">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-primary/80 transition-colors">
+              <i class="fa fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">快速链接</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html#about" class="text-white/70 hover:text-primary transition-colors">关于乐队</a></li>
+            <li><a href="index.html#members" class="text-white/70 hover:text-primary transition-colors">成员介绍</a></li>
+            <li><a href="https://www.bilibili.com/video/BV1xx411c7mC/" target="_blank" class="text-white/70 hover:text-primary transition-colors">B站官方频道</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">联系</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-white/70">
+              <i class="fa fa-envelope-o"></i>
+              <span>contact@girlsbandcry.com</span>
+            </li>
+            <li class="flex items-center gap-2 text-white/70">
+              <i class="fa fa-map-marker"></i>
+              <span>日本东京都涩谷区</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 mt-8 pt-8 text-center text-white/50 text-sm">
+        <p>© 2025 Girls Band Cry 官方网站. 保留所有权利.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" class="fixed bottom-8 right-8 p-3 rounded-full bg-primary text-white shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('py-2', 'shadow-md');
+        navbar.classList.remove('py-3');
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+      } else {
+        navbar.classList.add('py-3');
+        navbar.classList.remove('py-2', 'shadow-md');
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+      }
+    });
+
+    // 移动端菜单
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      menuBtn.innerHTML = isOpen ? 
+        '<i class="fa fa-times text-xl"></i>' : 
+        '<i class="fa fa-bars text-xl"></i>';
+    });
+
+    // 背景音乐控制
+    const musicBtn = document.getElementById('musicBtn');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    let isPlaying = false;
+    
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        backgroundMusic.pause();
+        musicBtn.classList.remove('active');
+        musicBtn.innerHTML = '<i class="fa fa-music text-xl"></i>';
+      } else {
+        backgroundMusic.play().catch(error => {
+          console.log('音乐播放需要用户交互:', error);
+          alert('请点击页面后再尝试播放背景音乐');
+        });
+        musicBtn.classList.add('active');
+        musicBtn.innerHTML = '<i class="fa fa-pause text-xl"></i>';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // 返回顶部
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // 页面加载完成后执行
+    document.addEventListener('DOMContentLoaded', () => {
+      // 为所有内部链接添加平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          // 关闭移动端菜单
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            menuBtn.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+          }
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

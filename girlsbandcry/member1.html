@@ -1,0 +1,371 @@
+<!-- member1.html 成员枫页面 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>井芹仁菜 - Girls Band Cry 成员介绍</title>
+  <!-- 引入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 配置 Tailwind 自定义主题 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF6B8B',
+            secondary: '#7928CA',
+            accent: '#FFC107',
+            dark: '#121212',
+            light: '#F8F9FA'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Poppins', 'sans-serif']
+          },
+        },
+      }
+    }
+  </script>
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+      .bg-blur {
+        backdrop-filter: blur(8px);
+      }
+    }
+  </style>
+  <style>
+    /* 全局样式 */
+    body {
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+    }
+    /* 平滑滚动 */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* 音乐按钮动画 */
+    .music-btn.active {
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-light font-sans text-dark antialiased" style="background-image: url('https://picsum.photos/id/1027/1920/1080'); background-blend-mode: overlay; background-color: rgba(255,255,255,0.8);">
+  <!-- 导航栏 -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/80 bg-blur">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="text-primary text-2xl font-display font-bold">Girls Band Cry</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="index.html#about" class="hidden md:inline text-dark/80 hover:text-primary transition-colors">关于乐队</a>
+        <a href="index.html#members" class="hidden md:inline text-dark/80 hover:text-primary transition-colors">成员介绍</a>
+        <button id="musicBtn" class="music-btn p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+          <i class="fa fa-music text-xl"></i>
+        </button>
+      </div>
+      <!-- 移动端菜单按钮 -->
+      <button id="menuBtn" class="md:hidden p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+        <i class="fa fa-bars text-xl"></i>
+      </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white/95 bg-blur w-full absolute top-full left-0 shadow-lg">
+      <div class="container mx-auto px-4 py-3 flex flex-col gap-4">
+        <a href="index.html#about" class="text-dark/80 hover:text-primary py-2 transition-colors">关于乐队</a>
+        <a href="index.html#members" class="text-dark/80 hover:text-primary py-2 transition-colors">成员介绍</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 背景音乐元素 -->
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="https://example.com/girlsbandcry-theme.mp3" type="audio/mpeg">
+    您的浏览器不支持音频播放
+    <!-- 注意：实际使用时请替换为真实的Girls Band Cry音乐文件URL -->
+  </audio>
+
+  <!-- 成员详情区域 -->
+  <header class="pt-32 pb-16 px-4">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row gap-8 items-center">
+        <div class="w-full md:w-1/3 rounded-2xl overflow-hidden shadow-2xl">
+          <img src="主唱.jpg" alt="成员 井芹仁菜" class="w-full h-auto object-cover">
+        </div>
+        <div class="w-full md:w-2/3 text-center md:text-left">
+          <h1 class="text-[clamp(2rem,5vw,3rem)] font-display font-bold text-dark mb-2">井芹仁菜</h1>
+          <p class="text-primary text-xl font-semibold mb-6">主唱 / 吉他手</p>
+          <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+            <span class="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm">主唱</span>
+            <span class="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm">吉他</span>
+            <span class="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm">词曲创作</span>
+            <span class="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm">乐队队长???</span>
+          </div>
+          <div class="flex justify-center md:justify-start gap-4 mb-8">
+            <a href="https://www.bilibili.com/" target="_blank" class="px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/30 flex items-center gap-2">
+              <i class="fa fa-bilibili"></i> B站观看
+            </a>
+            <a href="index.html#members" class="px-6 py-3 bg-white text-primary border border-primary rounded-full font-medium hover:bg-primary/5 transition-all shadow-md hover:shadow-primary/20 flex items-center gap-2">
+              <i class="fa fa-arrow-left"></i> 返回成员列表
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="py-16 px-4 bg-white/70 bg-blur rounded-3xl mx-4 md:mx-8 lg:mx-16 mb-20">
+    <div class="container mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-dark mb-6 flex items-center gap-2">
+            <i class="fa fa-user-circle text-primary"></i> 个人简介
+          </h2>
+          <p class="text-dark/80 mb-6 leading-relaxed">
+            仁菜的父亲是教育家，从小受到严格家庭教育，成绩优异。因为教育家父亲的严格教导 ，
+            养成了异于常人的正义感，面对校园霸凌拒绝妥协，即便身心受创也不愿低头，
+            最终选择退学并独自前往城市追寻新生活 [4]。仁菜情感丰富，对音乐尤其是钻石星辰的歌曲有深厚依恋，
+            这成为她渡过低谷的精神支柱；她对友情的珍视也在与桃香等人的互动中体现，表现为真诚而热烈的态度。
+            她敢于表达自我，无论是通过广播室播放《空之箱》宣泄愤怒 [33]，还是在舞台上公开讲述自身经历，
+            均展现了勇于对抗不公的个性。尽管初期因内向而难以适应新环境，社交中常感孤独。
+            仁菜的韧性在成长中尤为突出，她能在挫折与自我否定中反思并找到方向，
+            凭借对音乐的热爱和对梦想的执着不断突破自我。
+          </p>
+          <p class="text-dark/80 mb-6 leading-relaxed">
+            仁菜拥有一头深棕色的短发，发梢微卷，并在两侧扎成低双马尾，额前留有整齐的刘海，整体造型干净利落。
+            其眼睛为深蓝色。仁菜常穿一件带有白色羊羔绒内衬的深蓝色夹克，内搭印有英文标语的白色T恤,
+            下身为红黑主调的格纹百褶裙，搭配白色中筒袜与黑色帆布鞋，整体装扮偏向学院风 。
+          </p>
+          <p class="text-dark/80 leading-relaxed">
+            乐队的精神支柱，她总是能够带领大家克服困难，保持积极向上的心态。
+            她的舞台表现力极强，每次演出都能全身心投入，用音乐传递最真实的情感。
+          </p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-dark mb-6 flex items-center gap-2">
+            <i class="fa fa-music text-primary"></i> 音乐经历
+          </h2>
+          <ul class="space-y-4 text-dark/80">
+            <li class="flex gap-3">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+            </li>
+            <li class="flex gap-3">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+            </li>
+            <li class="flex gap-3">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              <div>
+                <span class="font-bold text-dark">2023年</span> - 与其他成员共同组建 Girls Band Cry，担任主唱
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              <div>
+                <span class="font-bold text-dark">2024年</span> - 乐队歌曲雑踏、僕らの街（熙熙攘攘、我们的城市）发行，获得广泛好评
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              <div>
+                <span class="font-bold text-dark">2025年</span> - B站相关视频播放量突破千万
+              </div>
+            </li>
+          </ul>
+          
+          <h2 class="text-2xl font-bold text-dark mt-10 mb-6 flex items-center gap-2">
+            <i class="fa fa-heart text-primary"></i> 个人爱好
+          </h2>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">音乐创作</span>
+            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">阅读</span>
+            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">旅行</span>
+            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">摄影</span>
+    
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-16">
+        <h2 class="text-2xl font-bold text-dark mb-8 text-center">代表作品</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 作品1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <div class="relative h-48">
+              <img src="GBC_togetoge.webp" alt="歌曲雑踏、僕らの街（熙熙攘攘、我们的城市）" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <h3 class="text-white font-bold p-4 text-shadow">歌曲雑踏、僕らの街</h3>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-dark/70 text-sm mb-3">乐队首张EP主打歌，被称为'冰'的歌曲</p>
+              <a href="https://www.bilibili.com/video/BV1ZLrhYtE69/?spm_id_from=333.337.search-card.all.click&vd_source=461658180896cacfa7f5a22409e1cbf8" target="_blank" class="text-primary hover:text-primary/80 transition-colors text-sm font-medium">
+                观看MV <i class="fa fa-external-link ml-1"></i>
+              </a>
+            </div>
+          </div>
+          
+          
+          
+          
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-12 px-4">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-display font-bold text-primary mb-4">Girls Band Cry</h3>
+          <p class="text-white/70 mb-6">
+            用音乐传递真实情感，用旋律治愈心灵
+          </p>
+          <div class="flex gap-4">
+            <a href="https://www.bilibili.com/" target="_blank" class="p-2 rounded-full bg-white/10 hover:bg-primary/80 transition-colors">
+              <i class="fa fa-bilibili"></i>
+            </a>
+            <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-primary/80 transition-colors">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-primary/80 transition-colors">
+              <i class="fa fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">快速链接</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html#about" class="text-white/70 hover:text-primary transition-colors">关于乐队</a></li>
+            <li><a href="index.html#members" class="text-white/70 hover:text-primary transition-colors">成员介绍</a></li>
+            <li><a href="https://www.bilibili.com/" target="_blank" class="text-white/70 hover:text-primary transition-colors">B站官方频道</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">联系我们</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-white/70">
+              <i class="fa fa-envelope-o"></i>
+              <span>contact@girlsbandcry.com</span>
+            </li>
+            <li class="flex items-center gap-2 text-white/70">
+              <i class="fa fa-map-marker"></i>
+              <span>日本东京都涩谷区</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 mt-8 pt-8 text-center text-white/50 text-sm">
+        <p>© 2025 Girls Band Cry 同人网站. 保留所有权利.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" class="fixed bottom-8 right-8 p-3 rounded-full bg-primary text-white shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('py-2', 'shadow-md');
+        navbar.classList.remove('py-3');
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+      } else {
+        navbar.classList.add('py-3');
+        navbar.classList.remove('py-2', 'shadow-md');
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+      }
+    });
+
+    // 移动端菜单
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      menuBtn.innerHTML = isOpen ? 
+        '<i class="fa fa-times text-xl"></i>' : 
+        '<i class="fa fa-bars text-xl"></i>';
+    });
+
+    // 背景音乐控制
+    const musicBtn = document.getElementById('musicBtn');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    let isPlaying = false;
+    
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        backgroundMusic.pause();
+        musicBtn.classList.remove('active');
+        musicBtn.innerHTML = '<i class="fa fa-music text-xl"></i>';
+      } else {
+        backgroundMusic.play().catch(error => {
+          console.log('音乐播放需要用户交互:', error);
+          alert('请点击页面后再尝试播放背景音乐');
+        });
+        musicBtn.classList.add('active');
+        musicBtn.innerHTML = '<i class="fa fa-pause text-xl"></i>';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // 返回顶部
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // 页面加载完成后执行
+    document.addEventListener('DOMContentLoaded', () => {
+      // 为所有内部链接添加平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          // 关闭移动端菜单
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            menuBtn.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+          }
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
